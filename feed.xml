@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" 
-     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
-     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
   <channel>
     <title>Malayalam News Today</title>
     <link>https://intunelife.github.io/malayalam-news-podcast/</link>
     <language>ml</language>
     <itunes:author>Malayalam News Today</itunes:author>
     <description>Daily Malayalam News Highlights and Breaking News.</description>
-    <itunes:image href="https://intunelife.github.io/malayalam-news-podcast/cover.jpg"/>
-    <itunes:category text="News"/>
-    <!-- Episodes will be appended here automatically -->
-  </channel>
+    <itunes:image href="https://intunelife.github.io/malayalam-news-podcast/cover.jpg" />
+    <itunes:category text="News" />
+    
+  <item><title>Malayalam News - November 06, 2026</title><description /><pubDate>Fri, 06 Nov 2026 16:31:13 +0400</pubDate><enclosure url="https://intunelife.github.io/malayalam-news-podcast/episodes/episode_20261106.mp3" length="73440" type="audio/mpeg" /><guid>ml-news-202611061231</guid></item></channel>
 </rss>
