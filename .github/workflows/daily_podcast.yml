@@ -1,0 +1,38 @@
+name: Generate Daily Malayalam News Podcast
+
+on:
+  schedule:
+    # 02:30 UTC = 6:30 AM UAE Time (GST / UTC+4)
+    - cron: '30 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install edge-tts feedparser
+
+      - name: Run Script
+        run: |
+          python run_daily.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add feed.xml episodes/
+          git commit -m "Auto-published episode for $(date +'%Y-%m-%d')" || exit 0
+          git push
