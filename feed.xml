@@ -4,12 +4,12 @@
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Malayalam News Today</title>
-    <link>https://<your-username>.github.io/malayalam-news-podcast/</link>
+    <link>https://intunelife.github.io/malayalam-news-podcast/</link>
     <language>ml</language>
-    <itunes:author>Your Brand</itunes:author>
-    <description>Daily Malayalam News Highlights</description>
-    <itunes:image href="https://<your-username>.github.io/malayalam-news-podcast/cover.jpg"/>
+    <itunes:author>Malayalam News Today</itunes:author>
+    <description>Daily Malayalam News Highlights and Breaking News.</description>
+    <itunes:image href="https://intunelife.github.io/malayalam-news-podcast/cover.jpg"/>
     <itunes:category text="News"/>
-    <!-- Episodes will be appended here -->
+    <!-- Episodes will be appended here automatically -->
   </channel>
 </rss>
