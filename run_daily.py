@@ -5,6 +5,7 @@ import feedparser
 import edge_tts
 import xml.etree.ElementTree as ET
 
+# RSS Sources for Malayalam News
 SOURCES = [
     "https://www.manoramaonline.com/news/latest-news.rss",
     "https://www.mathrubhumi.com/rss/latest-news.xml"
@@ -29,6 +30,7 @@ def build_script(headlines):
     return intro + body + outro
 
 async def generate_audio(text, output_file):
+    # Free Malayalam Neural Voice
     voice = "ml-IN-SobhanaNeural"
     communicate = edge_tts.Communicate(text, voice)
     await communicate.save(output_file)
@@ -39,6 +41,7 @@ def update_rss_feed(episode_filename, title, description, length_bytes):
     tree = ET.parse(feed_file)
     channel = tree.getroot().find('channel')
 
+    # Filled with your GitHub username: intunelife
     base_url = "https://intunelife.github.io/malayalam-news-podcast"
     pub_date = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=4))).strftime("%a, %d %b %Y %H:%M:%S +0400")
 
@@ -65,14 +68,14 @@ async def main():
     headlines = get_latest_headlines()
     script = build_script(headlines)
 
-    print("Generating Malayalam Neural Audio...")
+    print("Generating Malayalam Audio...")
     await generate_audio(script, audio_path)
 
     file_size = os.path.getsize(audio_path)
-    episode_title = f"Malayalam News Bulletin - {datetime.datetime.now().strftime('%B %d, %Y')}"
+    episode_title = f"Malayalam News - {datetime.datetime.now().strftime('%B %d, %Y')}"
 
     update_rss_feed(output_filename, episode_title, "\n".join(headlines), file_size)
-    print("Done! Episode generated and feed.xml updated.")
+    print("Done! feed.xml updated.")
 
 if __name__ == "__main__":
     asyncio.run(main())
